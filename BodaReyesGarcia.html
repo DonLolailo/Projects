@@ -1,0 +1,589 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#fbf8f3" />
+  <meta name="description" content="Invitación de boda - Jorge Daniel Reyes & Aura Cecilia Garcia" />
+  <title>Invitación | Jorge & Aura</title>
+
+  <!-- Tipografías estilo invitación -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Great+Vibes&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg: #fbf8f3;
+      --paper:#ffffff;
+      --ink:#1b1b1b;
+      --muted:#6b6b6b;
+      --line:#e7dfd3;
+      --accent:#b08d57;     /* dorado suave */
+      --accent2:#2f6f6a;    /* verde elegante */
+      --shadow: 0 24px 70px rgba(20,18,12,.12);
+      --radius: 18px;
+      --max: 1040px;
+      --serif: "Playfair Display", ui-serif, Georgia, serif;
+      --script:"Great Vibes", "Brush Script MT", cursive;
+      --sans: "Inter", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--ink);
+      background:
+        radial-gradient(900px 550px at 20% 0%, rgba(176,141,87,.12), transparent 55%),
+        radial-gradient(800px 500px at 85% 20%, rgba(47,111,106,.10), transparent 55%),
+        var(--bg);
+      font-family:var(--sans);
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:22px 16px 60px;}
+
+    /* NAV */
+    .nav{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(251,248,243,.82);
+      border-bottom:1px solid rgba(231,223,211,.7);
+    }
+    .navin{
+      max-width:var(--max); margin:0 auto;
+      display:flex; gap:14px; align-items:center; justify-content:space-between;
+      padding:12px 16px;
+    }
+    .brand{
+      font-family:var(--serif);
+      letter-spacing:.02em;
+      font-weight:600;
+      display:flex; align-items:baseline; gap:10px;
+    }
+    .brand .amp{color:var(--accent); font-family:var(--script); font-size:26px; line-height:1}
+    .menu{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end}
+    .menu a{
+      text-decoration:none;
+      color:rgba(0,0,0,.72);
+      font-size:13px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid transparent;
+      transition:.2s ease;
+    }
+    .menu a:hover{
+      border-color: rgba(176,141,87,.35);
+      background: rgba(176,141,87,.08);
+      color: rgba(0,0,0,.86);
+    }
+
+    /* HERO */
+    .hero{
+      position:relative;
+      border-radius:var(--radius);
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      min-height: 520px;
+      display:grid;
+      align-items:end;
+      background: #ddd;
+    }
+    .hero::before{
+      content:"";
+      position:absolute; inset:0;
+      /* Si no existe hero.jpg, se verá el gradiente igual */
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.10), rgba(0,0,0,.58)),
+        url("hero.jpg") center/cover no-repeat;
+    }
+    .hero::after{
+      content:"";
+      position:absolute; inset:0;
+      /* Fallback elegante por si no pones foto */
+      background:
+        radial-gradient(900px 480px at 25% 0%, rgba(176,141,87,.30), transparent 60%),
+        radial-gradient(900px 480px at 85% 20%, rgba(47,111,106,.22), transparent 60%),
+        linear-gradient(180deg, rgba(0,0,0,.20), rgba(0,0,0,.62));
+      mix-blend-mode: multiply;
+      opacity:.85;
+      pointer-events:none;
+    }
+    .hero .content{
+      position:relative;
+      padding:44px 22px 34px;
+      color:#fff;
+    }
+    .kicker{
+      font-family:var(--sans);
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      font-size:12px;
+      opacity:.92;
+    }
+    .names{
+      margin:12px 0 8px;
+      line-height:1.0;
+      font-family:var(--serif);
+      font-size:clamp(34px, 5vw, 56px);
+      font-weight:600;
+      letter-spacing:.02em;
+    }
+    .names .script{
+      font-family:var(--script);
+      font-weight:400;
+      color: rgba(255,255,255,.92);
+      margin:0 10px;
+      font-size:clamp(38px, 6vw, 72px);
+      display:inline-block;
+      transform: translateY(6px);
+    }
+    .sub{
+      max-width:720px;
+      color: rgba(255,255,255,.90);
+      font-size:15.5px;
+      line-height:1.6;
+      margin:10px 0 0;
+    }
+    .chips{
+      display:flex; gap:10px; flex-wrap:wrap;
+      margin-top:18px;
+    }
+    .chip{
+      display:inline-flex; gap:8px; align-items:center;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.22);
+      padding:10px 12px;
+      border-radius:999px;
+      font-size:13px;
+      backdrop-filter: blur(10px);
+    }
+
+    /* SECTIONS */
+    .section{
+      margin-top:18px;
+      background: var(--paper);
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 18px 60px rgba(25,18,12,.08);
+      overflow:hidden;
+    }
+    .section .inner{padding:22px 18px;}
+    .title{
+      margin:0 0 10px;
+      font-family:var(--serif);
+      font-size:22px;
+      letter-spacing:.02em;
+    }
+    .desc{margin:0; color:var(--muted); line-height:1.75; font-size:14.5px;}
+    .grid{
+      margin-top:14px;
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:14px;
+    }
+    @media (max-width: 920px){ .grid{grid-template-columns:1fr;} }
+
+    .box{
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:14px 14px;
+      background: #fff;
+    }
+    .kv{
+      display:grid;
+      grid-template-columns: 120px 1fr;
+      gap:10px 12px;
+      font-size:14.5px;
+      line-height:1.55;
+    }
+    .kv .k{color:var(--muted); font-size:12.2px; text-transform:uppercase; letter-spacing:.12em;}
+    .kv .v{font-weight:500;}
+    .accent{color:var(--accent); font-weight:700}
+    .accent2{color:var(--accent2); font-weight:700}
+
+    /* BUTTONS */
+    .btns{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px;}
+    .btn{
+      appearance:none;
+      border:1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      padding:11px 14px;
+      font-weight:600;
+      font-size:14px;
+      text-decoration:none;
+      display:inline-flex;
+      gap:10px; align-items:center;
+      transition:.2s ease;
+    }
+    .btn:hover{
+      border-color: rgba(176,141,87,.45);
+      background: rgba(176,141,87,.08);
+      transform: translateY(-1px);
+    }
+    .btn.primary{
+      border-color: rgba(176,141,87,.50);
+      background: rgba(176,141,87,.12);
+    }
+    .btn.primary:hover{background: rgba(176,141,87,.18);}
+    .btn.green:hover{border-color: rgba(47,111,106,.45); background: rgba(47,111,106,.08);}
+
+    /* COUNTDOWN */
+    .count{
+      display:grid;
+      grid-template-columns: repeat(4,1fr);
+      gap:10px;
+      margin-top:12px;
+    }
+    .tile{
+      border:1px solid var(--line);
+      border-radius:14px;
+      text-align:center;
+      padding:12px 10px;
+      background: linear-gradient(180deg, #fff, #fbfaf7);
+    }
+    .tile .n{
+      font-family:var(--serif);
+      font-size:28px;
+      font-weight:700;
+      color: var(--ink);
+    }
+    .tile .l{
+      margin-top:4px;
+      font-size:12px;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color: var(--muted);
+    }
+
+    /* GALLERY */
+    .gallery{
+      margin-top:12px;
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:10px;
+    }
+    @media (max-width: 920px){ .gallery{grid-template-columns:repeat(2,1fr);} }
+    @media (max-width: 560px){ .gallery{grid-template-columns:1fr;} }
+    .gimg{
+      border-radius:16px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      background:#eee;
+      aspect-ratio: 4/3;
+      position:relative;
+    }
+    .gimg img{
+      width:100%; height:100%;
+      object-fit:cover;
+      display:block;
+      transition: transform .25s ease;
+    }
+    .gimg:hover img{transform: scale(1.03);}
+    .gcap{
+      position:absolute; left:10px; bottom:10px;
+      background: rgba(255,255,255,.80);
+      border:1px solid rgba(231,223,211,.92);
+      border-radius:999px;
+      padding:6px 10px;
+      font-size:12.5px;
+      color: rgba(0,0,0,.72);
+      backdrop-filter: blur(8px);
+    }
+
+    /* RSVP embed */
+    .embed{
+      width:100%;
+      height: 780px;
+      border:1px solid var(--line);
+      border-radius: 16px;
+      overflow:hidden;
+      background: #fff;
+      margin-top:12px;
+    }
+    .embed iframe{width:100%; height:100%; border:0; display:block;}
+
+    /* Footer */
+    .footer{
+      margin-top:18px;
+      padding:16px 4px 0;
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      flex-wrap:wrap;
+      color: rgba(0,0,0,.56);
+      font-size:12.8px;
+    }
+    .small{color: rgba(0,0,0,.56); text-decoration:none; border-bottom:1px dashed rgba(0,0,0,.25);}
+    .small:hover{color: rgba(0,0,0,.75); border-bottom-color: rgba(176,141,87,.6);}
+  </style>
+</head>
+
+<body>
+  <div class="nav">
+    <div class="navin">
+      <div class="brand">
+        <span id="brandLeft">Jorge</span>
+        <span class="amp">&</span>
+        <span id="brandRight">Aura</span>
+      </div>
+      <div class="menu">
+        <a href="#detalles">Detalles</a>
+        <a href="#ubicacion">Ubicación</a>
+        <a href="#regalos">Regalos</a>
+        <a href="#galeria">Galería</a>
+        <a href="#rsvp">RSVP</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <section class="hero" aria-label="Invitación">
+      <div class="content">
+        <div class="kicker">INVITACIÓN DE BODA</div>
+        <div class="names">
+          <span id="novio">Jorge Daniel Reyes</span>
+          <span class="script">&amp;</span>
+          <span id="novia">Aura Cecilia Garcia</span>
+        </div>
+        <p class="sub" id="mensaje">Con mucha alegría queremos compartir este día especial contigo.</p>
+
+        <div class="chips">
+          <div class="chip">📅 <span id="fecha_txt">Sábado 21 de marzo de 2026</span></div>
+          <div class="chip">🕒 <span id="hora_txt">3:30 PM</span></div>
+          <div class="chip">📍 <span id="lugar_txt">GreenBox Guatemala</span></div>
+          <div class="chip">👥 <span><b id="invitados_num">100</b> invitados</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="detalles">
+      <div class="inner">
+        <h2 class="title">Detalles del evento</h2>
+        <p class="desc">Te esperamos para celebrar juntos. Por la noche podría hacer frío, así que recomendamos llevar abrigo.</p>
+
+        <div class="grid">
+          <div class="box">
+            <div class="kv">
+              <div class="k">Fecha</div><div class="v" id="kv_fecha">Sábado 21 de marzo de 2026</div>
+              <div class="k">Hora</div><div class="v" id="kv_hora">3:30 PM</div>
+              <div class="k">Lugar</div><div class="v" id="kv_lugar">GreenBox Guatemala</div>
+              <div class="k">Vestimenta</div><div class="v"><span class="accent">Formal</span></div>
+              <div class="k">Clima</div><div class="v">Puede ser que haya frío en la noche — <span class="accent2">trae suéter/abrigo</span> 🧥</div>
+              <div class="k">Invitados</div><div class="v"><span class="accent" id="kv_invitados">100</span></div>
+            </div>
+
+            <div class="btns" style="margin-top:14px;">
+              <a class="btn primary" id="btn_maps" target="_blank" rel="noopener">🗺️ Cómo llegar</a>
+              <a class="btn" id="btn_cal" download="boda.ics">📅 Agregar al calendario</a>
+              <a class="btn green" id="btn_rsvp_wa" target="_blank" rel="noopener">✅ Confirmar por WhatsApp</a>
+              <a class="btn" href="#rsvp">📝 Abrir formulario RSVP</a>
+            </div>
+          </div>
+
+          <div class="box">
+            <h3 class="title" style="font-size:18px; margin-bottom:6px;">Cuenta regresiva</h3>
+            <p class="desc" style="margin-bottom:10px;">Faltan…</p>
+            <div class="count" aria-label="Contador">
+              <div class="tile"><div class="n" id="cd_d">0</div><div class="l">Días</div></div>
+              <div class="tile"><div class="n" id="cd_h">0</div><div class="l">Horas</div></div>
+              <div class="tile"><div class="n" id="cd_m">0</div><div class="l">Min</div></div>
+              <div class="tile"><div class="n" id="cd_s">0</div><div class="l">Seg</div></div>
+            </div>
+            <p class="desc" id="cd_status" style="margin-top:12px;"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="ubicacion">
+      <div class="inner">
+        <h2 class="title">Ubicación</h2>
+        <p class="desc">GreenBox Guatemala. Presiona el botón para abrir Google Maps.</p>
+        <div class="btns">
+          <a class="btn primary" id="btn_maps2" target="_blank" rel="noopener">📍 Ver en Google Maps</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="regalos">
+      <div class="inner">
+        <h2 class="title">Regalos</h2>
+        <p class="desc">Tu presencia es lo más importante 🤍 Si deseas tener un detalle, aquí están nuestras listas:</p>
+        <div class="btns">
+          <a class="btn primary" target="_blank" rel="noopener"
+             href="https://www.cemaco.com/list/BODAREYESGARCIA21032026">🎁 Lista Cemaco</a>
+          <a class="btn primary" target="_blank" rel="noopener"
+             href="https://simangiftregistry.web.app/table/20009046">🎁 Lista Siman</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="galeria">
+      <div class="inner">
+        <h2 class="title">Galería</h2>
+        <p class="desc">Aquí van sus fotos (por ahora hay placeholders).</p>
+        <div class="gallery" id="gallery"></div>
+        <p class="desc" style="margin-top:12px;">
+          Tip: si quieres que el hero use una foto de ustedes, renómbrala como <b>hero.jpg</b> y colócala junto a este archivo.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="rsvp">
+      <div class="inner">
+        <h2 class="title">RSVP (Confirmación)</h2>
+        <p class="desc">Por favor llena el formulario para confirmar tu asistencia.</p>
+
+        <div class="embed" id="formWrap">
+          <iframe id="rsvpForm" title="RSVP"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      <div>Hecho con cariño 🤍</div>
+      <div><a class="small" href="#detalles">Volver arriba</a></div>
+    </div>
+  </div>
+
+  <script>
+    const INVITACION = {
+      novio: "Jorge Daniel Reyes",
+      novia: "Aura Cecilia Garcia",
+      fechaTexto: "Sábado 21 de marzo de 2026",
+      fechaISO: "2026-03-21T15:30:00-06:00",
+      horaTexto: "3:30 PM",
+      lugar: "GreenBox Guatemala",
+      mapsLink: "https://www.google.com/maps/place/Green+Box/data=!4m2!3m1!1s0x0:0x4acafa2635bab4cc?sa=X&ved=1t:2428&ictx=111",
+      vestimenta: "Formal",
+      clima: "Puede ser que haya frío en la noche",
+      abrigo: "Trae suéter o abrigo ligero 🧥",
+      invitados: 100,
+      whatsapp: "+50242185106",
+      mensajeWA: "¡Hola! Confirmo mi asistencia a su boda 💍🎉",
+
+      // ✅ GOOGLE FORM EMBED LISTO:
+      googleFormEmbed: "https://docs.google.com/forms/d/e/1FAIpQLSeJFtOVcGobhNRHpbLJ9N2kPAPrJIkZLWnnem4UkoJyT46Jdw/viewform?embedded=true",
+
+      // ✅ Galería (reemplaza cuando tengas URLs directas / o usa fotos locales)
+      fotos: [
+        { src: "foto1.jpg", caption: "Foto 1" },
+        { src: "foto2.jpg", caption: "Foto 2" },
+        { src: "foto3.jpg", caption: "Foto 3" },
+        { src: "foto4.jpg", caption: "Foto 4" },
+        { src: "foto5.jpg", caption: "Foto 5" },
+        { src: "foto6.jpg", caption: "Foto 6" }
+      ]
+    };
+
+    const $ = (id) => document.getElementById(id);
+    const pad = (n) => String(n).padStart(2,"0");
+
+    $("brandLeft").textContent = INVITACION.novio.split(" ")[0];
+    $("brandRight").textContent = INVITACION.novia.split(" ")[0];
+
+    $("novio").textContent = INVITACION.novio;
+    $("novia").textContent = INVITACION.novia;
+    $("fecha_txt").textContent = INVITACION.fechaTexto;
+    $("hora_txt").textContent = INVITACION.horaTexto;
+    $("lugar_txt").textContent = INVITACION.lugar;
+
+    $("kv_fecha").textContent = INVITACION.fechaTexto;
+    $("kv_hora").textContent = INVITACION.horaTexto;
+    $("kv_lugar").textContent = INVITACION.lugar;
+    $("kv_invitados").textContent = INVITACION.invitados;
+    $("invitados_num").textContent = INVITACION.invitados;
+
+    $("btn_maps").href = INVITACION.mapsLink;
+    $("btn_maps2").href = INVITACION.mapsLink;
+
+    const phone = INVITACION.whatsapp.replace(/\s+/g,"").replace("+","");
+    const text = encodeURIComponent(INVITACION.mensajeWA);
+    $("btn_rsvp_wa").href = `https://wa.me/${phone}?text=${text}`;
+
+    // Calendario .ics
+    function buildICS(){
+      const start = new Date(INVITACION.fechaISO);
+      const end = new Date(start.getTime() + 4*60*60*1000);
+
+      const dt = (d) => {
+        const u = new Date(d.getTime());
+        const YYYY = u.getUTCFullYear();
+        const MM = pad(u.getUTCMonth()+1);
+        const DD = pad(u.getUTCDate());
+        const hh = pad(u.getUTCHours());
+        const mm = pad(u.getUTCMinutes());
+        const ss = pad(u.getUTCSeconds());
+        return `${YYYY}${MM}${DD}T${hh}${mm}${ss}Z`;
+      };
+
+      const uid = `boda-${Math.random().toString(16).slice(2)}@jorge-aura`;
+      const summary = `Boda: ${INVITACION.novio} & ${INVITACION.novia}`;
+      const desc =
+        `Lugar: ${INVITACION.lugar}\\n` +
+        `Vestimenta: ${INVITACION.vestimenta}\\n` +
+        `Clima: ${INVITACION.clima} | Abrigo: ${INVITACION.abrigo}\\n` +
+        `Mapa: ${INVITACION.mapsLink}`;
+
+      return [
+        "BEGIN:VCALENDAR",
+        "VERSION:2.0",
+        "PRODID:-//Invitacion Boda//ES",
+        "CALSCALE:GREGORIAN",
+        "METHOD:PUBLISH",
+        "BEGIN:VEVENT",
+        `UID:${uid}`,
+        `DTSTAMP:${dt(new Date())}`,
+        `DTSTART:${dt(start)}`,
+        `DTEND:${dt(end)}`,
+        `SUMMARY:${summary}`,
+        `LOCATION:${INVITACION.lugar}`,
+        `DESCRIPTION:${desc}`,
+        "END:VEVENT",
+        "END:VCALENDAR"
+      ].join("\r\n");
+    }
+    const icsBlob = new Blob([buildICS()], {type:"text/calendar;charset=utf-8"});
+    $("btn_cal").href = URL.createObjectURL(icsBlob);
+
+    // Countdown
+    const target = new Date(INVITACION.fechaISO).getTime();
+    function tick(){
+      const now = Date.now();
+      let diff = Math.max(0, target - now);
+
+      const d = Math.floor(diff / (1000*60*60*24)); diff -= d*(1000*60*60*24);
+      const h = Math.floor(diff / (1000*60*60)); diff -= h*(1000*60*60);
+      const m = Math.floor(diff / (1000*60)); diff -= m*(1000*60);
+      const s = Math.floor(diff / 1000);
+
+      $("cd_d").textContent = d;
+      $("cd_h").textContent = h;
+      $("cd_m").textContent = m;
+      $("cd_s").textContent = s;
+
+      $("cd_status").textContent = (target - now <= 0) ? "¡Hoy es el gran día! 🎉" : "¡Ya casi! 🤍";
+    }
+    tick();
+    setInterval(tick, 1000);
+
+    // Google Form embed
+    $("rsvpForm").src = INVITACION.googleFormEmbed;
+
+    // Galería (fotos locales por defecto)
+    const gallery = $("gallery");
+    gallery.innerHTML = "";
+    INVITACION.fotos.forEach((ph, i) => {
+      const d = document.createElement("div");
+      d.className = "gimg";
+      d.innerHTML = `
+        <img src="${ph.src}" alt="${ph.caption || ("Foto " + (i+1))}" onerror="this.src='data:image/svg+xml;utf8,<?xml version=%221.0%22 encoding=%22UTF-8%22?><svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22600%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23f3ede3%22/><text x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 font-family=%22Georgia%22 font-size=%2240%22 fill=%22%237a6b58%22>Sube ${encodeURIComponent(ph.src)}</text></svg>';">
+        <div class="gcap">${ph.caption || ("Foto " + (i+1))}</div>
+      `;
+      gallery.appendChild(d);
+    });
+  </script>
+</body>
+</html>
